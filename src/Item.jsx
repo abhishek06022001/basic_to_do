@@ -7,6 +7,10 @@ function Item({ todo, handleInputChange, handleDelete, handleEdit }) {
   function handleInputChange(e) {
     setInput(e.target.value);
   }
+  function combineFunction(input, key) {
+    setEdit(prev => !prev)
+    handleEdit(input, key);
+  }
   return (
     <div>
 
@@ -14,7 +18,8 @@ function Item({ todo, handleInputChange, handleDelete, handleEdit }) {
         {(edit)
           ? <input value={input}
             onChange={handleInputChange}
-            onBlur={(e) => handleEdit(input, key)} /> : <input value={input} readOnly />}
+
+            onBlur={(e) => combineFunction(input, key)} /> : <input value={input} readOnly />}
 
         <button onClick={() => handleDelete(key)} className='bg-blue-100 m-2 p-1 text-sm' >Delete</button>
         <button onClick={() => setEdit(prev => !prev)} className='bg-blue-100 m-2 p-1 text-sm' >Edit</button>
