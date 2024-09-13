@@ -17,7 +17,7 @@ function Item({ todo, handleInputChange, handleDelete, handleEdit }) {
             onBlur={(e) => handleEdit(input, key)} /> : <input value={input} readOnly />}
 
         <button onClick={() => handleDelete(key)} className='bg-blue-100 m-2 p-1 text-sm' >Delete</button>
-        <button onClick={() => setEdit(true)} className='bg-blue-100 m-2 p-1 text-sm' >Edit</button>
+        <button onClick={() => setEdit(prev => !prev)} className='bg-blue-100 m-2 p-1 text-sm' >Edit</button>
 
       </div>
     </div>
